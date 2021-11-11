@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=\, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content ="ie=edge"/>
+        <title>
+            Testing retrieving information from the Trending API
+        </title>
+    </head>
+    <body>
+        <h1>Testing the Trending API</h1>
+
+        <p>
+            GitHub Repo: <span id="repo"></span><br />
+            GitHub Repo_link: <span id="repo_link"></span>
+        </p>
+        <script>
+            const python_api_url = 'https://trendings.herokuapp.com/repo?lang=python&since=monthly';
+
+            async function getREPO(){
+                const response = await fetch(python_api_url);
+                const data = await response.json();
+                const {repo, repo_link} = data.items[0];
+
+                console.log(data.items[0]);
+                
+                document.getElementById('repo').innerHTML = repo;
+                document.getElementById('repo_link').textContent = repo_link;
+
+            }
+
+            getREPO();
+
+
+        </script>
+    </body>
+</html>
