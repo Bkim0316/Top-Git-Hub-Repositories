@@ -12,8 +12,11 @@
         <h1>Testing the Trending API</h1>
 
         <p>
-            GitHub Repo: <span id="repo"></span><br />
-            GitHub Repo_link: <span id="repo_link"></span>
+            GitHub Repo: <span id="repo_0"></span><br />
+            GitHub Repo_link: <span id="repo_link_0"></span>
+            
+            GitHub Repo: <span id="repo_1"></span><br />
+            GitHub Repo_link: <span id="repo_link_1"></span>
         </p>
         <script>
             const python_api_url = 'https://trendings.herokuapp.com/repo?lang=python&since=monthly';
@@ -27,8 +30,8 @@
                 console.log(data.items[0]);
 
 
-                document.getElementById('repo').innerHTML = repo;
-                document.getElementById('repo_link').textContent = repo_link;
+                document.getElementById('repo_0').innerHTML = repo;
+                document.getElementById('repo_link_0').textContent = repo_link;
                 
 
             }
@@ -41,8 +44,8 @@
                 console.log(data.items[1]);
 
 
-                document.getElementById('repo').innerHTML = repo;
-                document.getElementById('repo_link').textContent = repo_link;
+                document.getElementById('repo_1').innerHTML = repo;
+                document.getElementById('repo_link_1').textContent = repo_link;
                 
 
             }
