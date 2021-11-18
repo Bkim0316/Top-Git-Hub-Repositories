@@ -21,11 +21,13 @@
             async function getREPO(){
                 const response = await fetch(python_api_url);
                 const data = await response.json();
+                const {repo, repo_link} = data.items[i];
                 
                 for (let i = 0; i < 10; i++){
                     
-                    const {repo, repo_link} = data.items[i];
-
+                    
+                    
+                    console.log(data.items[i]);
 
 
                     document.getElementById('repo').innerHTML = repo;
