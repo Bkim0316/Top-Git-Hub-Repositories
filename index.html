@@ -8,8 +8,131 @@
         <title>
             Testing retrieving information from the Trending API
         </title>
+
+        <script>
+            function change_tab(id){
+                document.getElementById("page_content").innherHTML=document.getElementById(id+"_desc").innerHTML;
+                document.getElementById("page1").className="notselected";
+                document.getElementById("page2").className="notselected";
+                document.getElementById("page3").className="notselected";
+                document.getElementById("id").className="selected";
+            }
+
+
+            
+        </script>
+
+<!-- ================================================================================================================
+=====================================================================================================================  -->
+
+        <script>
+            const python_api_url = 'https://trendings.herokuapp.com/repo?lang=python&since=monthly';
+
+
+
+            async function getREPO(){
+                const response = await fetch(python_api_url);
+                const data = await response.json();
+                console.log(data);
+
+                var sb = "";
+                var DIVID = "jsContent"
+
+                for (let i=0; i < 10; i++){
+
+
+
+                    sb += `GitHub Repo: <span id="repo_">${data.items[i].repo}</span><br />
+                    GitHub Repo_link: <span id="repo_link_">${data.items[i].repo_link}</span><br /><br />`;
+                    
+                }
+
+                var el = document.getElementById(DIVID);
+                console.log(el);
+                el.insertAdjacentHTML("beforeend",sb);
+
+            }
+
+            getREPO();
+
+
+            
+
+            
+
+
+        </script>
+
+<!-- ================================================================================================================
+=====================================================================================================================  -->
+
     </head>
     <body>
+        <div id = "main_content">
+            
+            <li class="selected" id="page1" onclick="change_tab(this.id);">Page1</li>
+            <li class="notselected" id="page2" onclick="change_tab(this.id);">Page2</li>
+            <li class="notselected" id="page3" onclick="change_tab(this.id);">Page3</li>
+
+
+            <div class='hidden_desc' id="page1_desc">
+                <h2>Page 1</h2>
+                Top Python Github Repositories for the month.<br /><br />
+                
+
+
+                
+
+
+
+            </div>
+            
+            <div class='hidden_desc' id="page2_desc">
+                <h2>Javascript Top Repositories</h2>
+                Top Javascript Github Repositories for the month.<br /><br />
+                
+                for (let i=0; i < 6; i++){
+                    GitHub Repo: <span id="repo_${i}"></span><br />
+                    GitHub Repo_link: <span id="repo_link_${i}"></span><br /><br />
+                }
+            </div>
+
+
+<!-- ================================================================================================================
+=====================================================================================================================  -->
+
+                
+            <div class='hidden_desc' id="page3_desc">
+                <h2>Java Top Repositories</h2>
+                Top Java Github Repositories for the month.<br /><br />
+                
+                for (let i=0; i < 6; i++){
+                    GitHub Repo: <span id="repo_${i}"></span><br />
+                    GitHub Repo_link: <span id="repo_link_${i}"></span><br /><br />
+                }
+            </div>
+                
+<!-- ================================================================================================================
+=====================================================================================================================  -->
+
+
+            <div id="page_content">
+                <h2>Page 1</h2>
+
+
+                <div id="jsContent">
+                    
+                </div>
+                    
+
+
+            </div>
+           
+      </div>
+
+<!-- ================================================================================================================
+===================================================================================================================== 
+
         <h1>Testing the Trending API</h1>
 
         <p>
@@ -19,42 +142,9 @@
             GitHub Repo: <span id="repo_1"></span><br />
             GitHub Repo_link: <span id="repo_link_1"></span>
         </p>
-        <script>
-            const python_api_url = 'https://trendings.herokuapp.com/repo?lang=python&since=monthly';
-
-            async function getREPO(){
-                const response = await fetch(python_api_url);
-                const data = await response.json();
-                const {repo, repo_link} = data.items[0];
-                
-   
-                console.log(data.items[0]);
+    -->
 
 
-                document.getElementById('repo_0').innerHTML = repo;
-                document.getElementById('repo_link_0').textContent = repo_link;
-                
 
-            }
-             async function getREPO1(){
-                const response = await fetch(python_api_url);
-                const data = await response.json();
-                const {repo, repo_link} = data.items[1];
-                
-   
-                console.log(data.items[1]);
-
-
-                document.getElementById('repo_1').innerHTML = repo;
-                document.getElementById('repo_link_1').textContent = repo_link;
-                
-
-            }
-
-            getREPO();
-            getREPO1();
-
-
-        </script>
     </body>
 </html>
