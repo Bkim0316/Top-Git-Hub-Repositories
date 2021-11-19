@@ -11,11 +11,11 @@
 
         <script>
             function change_tab(id){
-                document.getElementById("page_content").innherHTML=document.getElementById(id+"_desc").innerHTML;
+                document.getElementById("page_content").innerHTML=document.getElementById(id+"_desc").innerHTML;
                 document.getElementById("page1").className="notselected";
                 document.getElementById("page2").className="notselected";
                 document.getElementById("page3").className="notselected";
-                document.getElementById("id").className="selected";
+                document.getElementById(id).className="selected";
             }
 
 
@@ -27,16 +27,18 @@
 
         <script>
             const python_api_url = 'https://trendings.herokuapp.com/repo?lang=python&since=monthly';
+            const java_api_url = 'https://trendings.herokuapp.com/repo?lang=java&since=monthly';
+            const javascript_api_url = 'https://trendings.herokuapp.com/repo?lang=javascript&since=monthly';
 
 
 
-            async function getREPO(){
-                const response = await fetch(python_api_url);
+            async function getPythonStartREPO(){
+                const response = await fetch(javascript_api_url);
                 const data = await response.json();
                 console.log(data);
 
                 var sb = "";
-                var DIVID = "jsContent"
+                var DIVID = "pythonStartContent"
 
                 for (let i=0; i < 10; i++){
 
@@ -53,10 +55,84 @@
 
             }
 
-            getREPO();
+            getPythonStartREPO();
+
+            async function getPythonREPO(){
+                const response = await fetch(python_api_url);
+                const data = await response.json();
+                console.log(data);
+
+                var sb = "";
+                var DIVID = "pythonContent"
+
+                for (let i=0; i < 10; i++){
 
 
-            
+
+                    sb += `GitHub Repo: <span id="repo_">${data.items[i].repo}</span><br />
+                    GitHub Repo_link: <span id="repo_link_">${data.items[i].repo_link}</span><br /><br />`;
+                    
+                }
+
+                var el = document.getElementById(DIVID);
+                console.log(el);
+                el.insertAdjacentHTML("beforeend",sb);
+
+            }
+
+            getPythonREPO();
+
+
+            async function getJavaREPO(){
+                const response = await fetch(java_api_url);
+                const data = await response.json();
+                console.log(data);
+
+                var sb = "";
+                var DIVID = "javaContent"
+
+                for (let i=0; i < 10; i++){
+
+
+
+                    sb += `GitHub Repo: <span id="repo_">${data.items[i].repo}</span><br />
+                    GitHub Repo_link: <span id="repo_link_">${data.items[i].repo_link}</span><br /><br />`;
+                    
+                }
+
+                var el = document.getElementById(DIVID);
+                console.log(el);
+                el.insertAdjacentHTML("beforeend",sb);
+
+            }
+
+            getJavaREPO();
+
+
+            async function getJavascriptREPO(){
+                const response = await fetch(javascript_api_url);
+                const data = await response.json();
+                console.log(data);
+
+                var sb = "";
+                var DIVID = "javascriptContent"
+
+                for (let i=0; i < 10; i++){
+
+
+
+                    sb += `GitHub Repo: <span id="repo_">${data.items[i].repo}</span><br />
+                    GitHub Repo_link: <span id="repo_link_">${data.items[i].repo_link}</span><br /><br />`;
+                    
+                }
+
+                var el = document.getElementById(DIVID);
+                console.log(el);
+                el.insertAdjacentHTML("beforeend",sb);
+
+            }
+
+            getJavascriptREPO();
 
             
 
@@ -70,31 +146,31 @@
     <body>
         <div id = "main_content">
             
-            <li class="selected" id="page1" onclick="change_tab(this.id);">Page1</li>
-            <li class="notselected" id="page2" onclick="change_tab(this.id);">Page2</li>
-            <li class="notselected" id="page3" onclick="change_tab(this.id);">Page3</li>
+            <li class="selected" id="page1" onclick="change_tab(this.id);">Python Top REPO</li>
+            <li class="notselected" id="page2" onclick="change_tab(this.id);">Java Top REPO</li>
+            <li class="notselected" id="page3" onclick="change_tab(this.id);">Javascript Top REPO</li>
 
 
             <div class='hidden_desc' id="page1_desc">
-                <h2>Page 1</h2>
+                <h2>Python Top Repositories</h2>
                 Top Python Github Repositories for the month.<br /><br />
                 
-
-
-                
-
-
+                <div id="pythonContent">
+                    
+                </div>
 
             </div>
             
+<!-- ================================================================================================================
+=====================================================================================================================  -->
+
             <div class='hidden_desc' id="page2_desc">
                 <h2>Javascript Top Repositories</h2>
                 Top Javascript Github Repositories for the month.<br /><br />
                 
-                for (let i=0; i < 6; i++){
-                    GitHub Repo: <span id="repo_${i}"></span><br />
-                    GitHub Repo_link: <span id="repo_link_${i}"></span><br /><br />
-                }
+                <div id="javascriptContent">
+                    
+                </div>
             </div>
 
 
@@ -106,10 +182,9 @@
                 <h2>Java Top Repositories</h2>
                 Top Java Github Repositories for the month.<br /><br />
                 
-                for (let i=0; i < 6; i++){
-                    GitHub Repo: <span id="repo_${i}"></span><br />
-                    GitHub Repo_link: <span id="repo_link_${i}"></span><br /><br />
-                }
+                <div id="javaContent">
+                    
+                </div>
             </div>
                 
 <!-- ================================================================================================================
@@ -117,34 +192,16 @@
 
 
             <div id="page_content">
-                <h2>Page 1</h2>
+                <h2>Python Top Repositories</h2>
+                Top Python Github Repositories for the month.<br /><br />
 
-
-                <div id="jsContent">
+                <div id="pythonStartContent">
                     
                 </div>
                     
-
-
             </div>
            
       </div>
-
-<!-- ================================================================================================================
-===================================================================================================================== 
-
-        <h1>Testing the Trending API</h1>
-
-        <p>
-            GitHub Repo: <span id="repo_0"></span><br />
-            GitHub Repo_link: <span id="repo_link_0"></span><br /><br />
-            
-            GitHub Repo: <span id="repo_1"></span><br />
-            GitHub Repo_link: <span id="repo_link_1"></span>
-        </p>
-    -->
-
-
 
     </body>
 </html>
