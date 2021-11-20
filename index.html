@@ -5,9 +5,7 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=\, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatible" content ="ie=edge"/>
-        <title>
-            Top Repositories for The Month
-        </title>
+	<title>Top Repositories for the Month</title>
 
         <script>
             function change_tab(id){
@@ -44,8 +42,8 @@
 
 
 
-                    sb += `GitHub Repo: <span id="repo_">${data.items[i].repo}</span><br />
-                    GitHub Repo_link: <span id="repo_link_">${data.items[i].repo_link}</span><br /><br />`;
+                    sb += `<div class="repo" id="repo_"><h2><a href="${data.items[i].repo_link}">${data.items[i].repo}</a></h2>
+                    ${data.items[i].desc}</div>`;
                     
                 }
 
@@ -69,8 +67,8 @@
 
 
 
-                    sb += `GitHub Repo: <span id="repo_">${data.items[i].repo}</span><br />
-                    GitHub Repo_link: <span id="repo_link_">${data.items[i].repo_link}</span><br /><br />`;
+                    sb += `<div class="repo" id="repo_"><h2><a href="${data.items[i].repo_link}">${data.items[i].repo}</a></h2>
+                    ${data.items[i].desc}</div>`;
                     
                 }
 
@@ -95,8 +93,8 @@
 
 
 
-                    sb += `GitHub Repo: <span id="repo_">${data.items[i].repo}</span><br />
-                    GitHub Repo_link: <span id="repo_link_">${data.items[i].repo_link}</span><br /><br />`;
+                    sb += `<div class="repo" id="repo_"><h2><a href="${data.items[i].repo_link}">${data.items[i].repo}</a></h2>
+                    ${data.items[i].desc}</div>`;
                     
                 }
 
@@ -121,8 +119,8 @@
 
 
 
-                    sb += `GitHub Repo: <span id="repo_">${data.items[i].repo}</span><br />
-                    GitHub Repo_link: <span id="repo_link_">${data.items[i].repo_link}</span><br /><br />`;
+                    sb += `<div class="repo" id="repo_"><h2><a href="${data.items[i].repo_link}">${data.items[i].repo}</a></h2>
+                    ${data.items[i].desc}</div>`;
                     
                 }
 
@@ -144,6 +142,7 @@
 
     </head>
     <body>
+    	<h1>Top Repositories for the Month</h1>
         <div id = "main_content">
             
             <li class="selected" id="page1" onclick="change_tab(this.id);">Python Top REPO</li>
@@ -153,7 +152,6 @@
 
             <div class='hidden_desc' id="page1_desc">
                 <h2>Python Top Repositories</h2>
-                Top Python Github Repositories for the month.<br /><br />
                 
                 <div id="pythonContent">
                     
@@ -166,7 +164,6 @@
 
             <div class='hidden_desc' id="page3_desc">
                 <h2>Javascript Top Repositories</h2>
-                Top Javascript Github Repositories for the month.<br /><br />
                 
                 <div id="javascriptContent">
                     
@@ -180,7 +177,6 @@
                 
             <div class='hidden_desc' id="page2_desc">
                 <h2>Java Top Repositories</h2>
-                Top Java Github Repositories for the month.<br /><br />
                 
                 <div id="javaContent">
                     
@@ -193,7 +189,6 @@
 
             <div id="page_content">
                 <h2>Python Top Repositories</h2>
-                Top Python Github Repositories for the month.<br /><br />
 
                 <div id="pythonStartContent">
                     
