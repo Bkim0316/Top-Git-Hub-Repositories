@@ -3,12 +3,13 @@ body{
     margin:0px auto;
     padding:0px;
     font-family:helvetica;
-    height:2000px;
+    height:auto;
 }
 h1{
     text-align:center;
     font-size:35px;
-    margin-top:60px;
+    margin:0px;
+    padding:20px;
     color:#BEF781;
 }
 h1 p{
@@ -19,9 +20,9 @@ h1 p{
     color:white;
 }
 #main_content{
-    margin-top:50px;
-    width:500px;
-    margin-left:250px;
+    padding:50px;
+    padding-top:0px;
+    width:auto;
 }
 #main_content li{
     display:inline;
@@ -47,10 +48,27 @@ h1 p{
 }
 #main_content #page_content{
     background-color:#D0F5A9;
-    padding:10px;
+    padding:20px;
     margin-top:9px;
     border-radius:0px 5px 5px 5px;
     color:#2E2E2E;
     line-height: 1.6em;
     word-spacing:4px;
+}
+#main_content .repo {
+    width: auto;
+    border: 5px solid;
+    border-color: #2E3B0B;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#main_content h2 {
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+#main_content a {
+    color: blue;
+    font-weight: bold;
 }
