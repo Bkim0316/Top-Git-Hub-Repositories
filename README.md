@@ -6,6 +6,8 @@ you the information for Java and Javascript. Once you are on the selected tab th
 repositories's title and the description for that repository. The title for the Repositories also act as hyperlinks 
 allowing you to have direct access to the repository.
 
+This project was deployed using Microsoft Azure Cloud Services and utilizes a REST API 
+
 One thing that you have to do, to access the website and it function as intended is to disable CORS on your selected browser.
 Otherwise the information will not show up as intended.
 
